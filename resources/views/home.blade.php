@@ -8,7 +8,7 @@
 
     @if (sizeof($posts)!=0) @foreach ($posts as $post)
 
-    <div class="container-fluid" style="margin-top: 10px;">
+    <div id="feed-container"  class="container">
         <div class="card text-white bg-dark">
             @if ($post->img !== NULL)
 
@@ -42,7 +42,6 @@
                         </div>
                         <div class="col-sm-4">
                             <div class="d-flex justify-content-end">
-
                                 <div>
                                     <i class="fas fa-heart fa-sm" style="padding-left: 15px;"></i> 40
                                 </div>

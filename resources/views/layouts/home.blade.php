@@ -2,19 +2,16 @@
 @section('content')
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="card">
 
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
-                            <img class="card-img-top" src={{ Auth::user()->avatar }} style="border-radius:50%; width:80px;
-                            margin: 10px; margin-top: 20px;">
+                            <img id="home-profile-left-user-avatar" class="card-img-top" src={{ Auth::user()->avatar }}>
                         </div>
                         <div class="col-md-8">
-
-                            <div style="margin-top: 17%; margin-left:0%;">
-
+                            <div id="home-profile-left-user-details">
                                 <a href="#"><b>{{ Auth::user()->f_name }} {{ Auth::user()->l_name }} </b></a><br>
                                 <a href="#">@ {{ Auth::user()->user_handle }}</a>
                             </div>
@@ -34,8 +31,11 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+
             <hr>
+
             <div class="card">
                 <div class="card-header">
                     Suggested Brands
@@ -45,16 +45,16 @@
                     dolor, culpa, est corrupti quod non asperiores accusamus id eos neque aut voluptatibus? Deleniti.
                 </div>
             </div>
+
         </div>
 
         <div class="col-md-6">
-
             @yield('content-home')
-
         </div>
 
         <div class="col-md-2">
             <div class="card">
+
                 <div class="card-header">
                     My Brands
                 </div>
@@ -64,15 +64,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-4">
-                            <img class="card-img-top" src={{ $managed_brand->avatar }} style="border-radius:50%; width:80px;
-                            height:80px; margin: 0px; margin-top: 20px; position:absolute;">
+                            <img id="home-profile-right-brand-avatar" class="card-img-top" src={{ $managed_brand->avatar }}>
                         </div>
                         <div class="col-md-8">
 
-                            <div style="margin-top: 17%; margin-left:12%;">
-
+                            <div id="home-profile-right-brand-details">
                                 <a href="#"><b>{{ $managed_brand->name }}</b></a><br>
-                                <a href="#" style="font-size: 13px;">{{$managed_brand->email}}</a>
+                                <a href="#">{{$managed_brand->email}}</a>
                             </div>
                         </div>
                     </div>
@@ -90,12 +88,11 @@
                         </div>
                     </div>
 
-                    <div class="container">
+                   
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newpost_modal">
                             New Post 
                         </button>
-                    </div>
 
                 </div>
 
@@ -122,9 +119,11 @@
                                             {{Form::hidden('brand_id', $managed_brand->id)}}
 
                                             <div class='form-group'>
-                                                {{Form::label('title','Post text')}} {{Form::text('text','',['class'=>'form-control', 'placeholder'=>'Max text of 255 words'])}}
+                                                {{Form::label('title','Post text')}} {{Form::textArea('text','',['class'=>'form-control', 'placeholder'=>'Maximum text of 191 characters', 'maxlength'=>'191'])}}
                                             </div>
                                             <div class='form-group'>
+
+                                                {{Form::label('title', 'Post Image')}}
                                                 {{Form::file('img', ['type'=>'file','class'=>'form-control'])}}
                                             </div>
                                         </div>

@@ -28,7 +28,7 @@
                         </div>
 
                         <div class='form-group'>
-                            {{Form::label('title','Brand Description')}} {{Form::textarea('description','',['class'=>'form-control', 'placeholder'=>'Description'])}}
+                            {{Form::label('title','Brand Description')}} {{Form::textarea('description','',['class'=>'form-control', 'placeholder'=>'Description', 'maxlength'=>'190'])}}
                         </div>
 
                         <div class="form-group">

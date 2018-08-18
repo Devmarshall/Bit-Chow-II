@@ -47,10 +47,10 @@ class UserController extends Controller
     {
 
         $this->validate($request, [
-            'f_name' => 'required|unique:brands|string|max:255',
-            'l_name' => 'required|string|max:255',
-            'user_handle' => 'required|string|max:255|unique:users',
-            'avatar' => 'mimes:jpeg,bmp,jpg,png|between:1, 6000',
+            'f_name' => 'required|string|max:191',
+            'l_name' => 'required|string|max:191',
+            'user_handle' => 'required|string|max:191',
+            'avatar' => 'mimes:jpeg,bmp,jpg,png|between:1,6000',
         ]);
 
         $user_id = Auth::user()->id;

@@ -129,6 +129,11 @@ class PagesController extends Controller
     private function getManagedBrands($user_id)
     {
         $managed_brands = Brand::where('owner_id', $user_id)->get();
+
+            for ($i=0; $i < sizeof($managed_brands); $i++) { 
+                $managed_brands[$i]->followers = $this->getFollowerCount($managed_brands[$i]->id);
+            }
+
         return $managed_brands;
     }
 
