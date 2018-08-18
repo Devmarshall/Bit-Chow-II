@@ -88,11 +88,14 @@
                         </div>
                     </div>
 
-                   
                         <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newpost_modal">
-                            New Post 
-                        </button>
+
+                        <div class="container">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newpost_modal">
+                                            New Post 
+
+                        </div>
+
 
                 </div>
 
