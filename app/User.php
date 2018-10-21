@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
@@ -15,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'f_name','user_handle', 'l_name', 'email', 'password',
+        'name', 'email', 'password',
     ];
 
     /**
@@ -26,14 +27,4 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    // public function Brands(){
-    //     return $this->hasMany(Brand::class);
-    // }
-    // public function Claps(){
-    //     return $this->hasMany(clap::class);
-    // }
-    // public function Claps(){
-    //     return $this->hasMany(clap::class);
-    // }
 }

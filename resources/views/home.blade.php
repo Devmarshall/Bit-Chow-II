@@ -1,69 +1,23 @@
-@extends('layouts.home') 
-@section('content-home')
+@extends('layouts.app')
 
+@section('content')
 <div class="container">
-    <div class="card">
-        <div class="card-body">My Feed</div>
-    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
 
-    @if (sizeof($posts)!=0) @foreach ($posts as $post)
-
-    <div id="feed-container"  class="container">
-        <div class="card text-white bg-dark">
-            @if ($post->img !== NULL)
-
-            <div class="card-body">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <img src={{$post->img}} style="width: 70%; height:auto;">
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
                         </div>
-                        <div class="col-sm-4">
-                            <div class="d-flex justify-content-start">
-                                <p>{{$post->text}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                    @endif
 
-            @else
-            <div class="card-body">
-                <div class="d-flex justify-content-center">
-                    <p>{{$post->text}}</p>
-                </div>
-            </div>
-            @endif
-            <div class="card-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            {{$post->brand_name}}
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="d-flex justify-content-end">
-                                <div>
-                                    <i class="fas fa-heart fa-sm" style="padding-left: 15px;"></i> 40
-                                </div>
-                                <a href="{{url('/channel/'.$post->hash)}}">
-                                    <div> <i class="fas fa-comment fa-sm" style="padding-left: 15px;"></i> 40
-
-                                    </div>
-                                </a>
-
-                            </div>
-                        </div>
-                    </div>
+                    You are logged in!
                 </div>
             </div>
         </div>
     </div>
-    @endforeach @else
-    <p>No feed here, pal up with brands to fill up your feed</p>
-    @endif
-
 </div>
-
-
-
-@stop
+@endsection
